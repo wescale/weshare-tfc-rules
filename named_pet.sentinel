@@ -1,0 +1,9 @@
+import "tfplan-functions" as plan
+
+outputs = filter plan.get_outputs() as address, output {
+  output.name is "pet_name"
+}
+
+main = rule {
+  length(outputs) > 0
+}

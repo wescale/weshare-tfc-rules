@@ -1,0 +1,323 @@
+terraform_version = "0.15.5"
+
+planned_values = {
+	"outputs": {
+		"pet": {
+			"name":      "pet",
+			"sensitive": false,
+			"value":     undefined,
+		},
+	},
+	"resources": {
+		"random_integer.personality": {
+			"address":        "random_integer.personality",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "personality",
+			"provider_name":  "registry.terraform.io/hashicorp/random",
+			"tainted":        false,
+			"type":           "random_integer",
+			"values": {
+				"keepers": {
+					"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+					"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+				},
+				"max":  11,
+				"min":  0,
+				"seed": null,
+			},
+		},
+		"random_integer.specie": {
+			"address":        "random_integer.specie",
+			"depends_on":     [],
+			"deposed_key":    "",
+			"index":          null,
+			"mode":           "managed",
+			"module_address": "",
+			"name":           "specie",
+			"provider_name":  "registry.terraform.io/hashicorp/random",
+			"tainted":        false,
+			"type":           "random_integer",
+			"values": {
+				"keepers": {
+					"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+					"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+				},
+				"max":  12,
+				"min":  0,
+				"seed": null,
+			},
+		},
+	},
+}
+
+variables = {}
+
+resource_changes = {
+	"random_integer.personality": {
+		"address": "random_integer.personality",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"keepers": {
+					"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+					"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+				},
+				"max":  11,
+				"min":  0,
+				"seed": null,
+			},
+			"after_unknown": {
+				"id":      true,
+				"keepers": {},
+				"result":  true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "personality",
+		"provider_name":  "registry.terraform.io/hashicorp/random",
+		"type":           "random_integer",
+	},
+	"random_integer.specie": {
+		"address": "random_integer.specie",
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after": {
+				"keepers": {
+					"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+					"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+				},
+				"max":  12,
+				"min":  0,
+				"seed": null,
+			},
+			"after_unknown": {
+				"id":      true,
+				"keepers": {},
+				"result":  true,
+			},
+			"before": null,
+		},
+		"deposed":        "",
+		"index":          null,
+		"mode":           "managed",
+		"module_address": "",
+		"name":           "specie",
+		"provider_name":  "registry.terraform.io/hashicorp/random",
+		"type":           "random_integer",
+	},
+}
+
+output_changes = {
+	"pet": {
+		"change": {
+			"actions": [
+				"create",
+			],
+			"after":         undefined,
+			"after_unknown": true,
+			"before":        null,
+		},
+		"name": "pet",
+	},
+}
+
+raw = {
+	"configuration": {
+		"root_module": {
+			"outputs": {
+				"pet": {
+					"expression": {
+						"references": [
+							"local.personalities",
+							"random_integer.personality",
+							"local.species",
+							"random_integer.specie",
+						],
+					},
+				},
+			},
+			"resources": [
+				{
+					"address": "random_integer.personality",
+					"expressions": {
+						"keepers": {
+							"references": [
+								"local.choices",
+							],
+						},
+						"max": {
+							"references": [
+								"local.personalities",
+							],
+						},
+						"min": {
+							"constant_value": 0,
+						},
+					},
+					"mode":                "managed",
+					"name":                "personality",
+					"provider_config_key": "random",
+					"schema_version":      0,
+					"type":                "random_integer",
+				},
+				{
+					"address": "random_integer.specie",
+					"expressions": {
+						"keepers": {
+							"references": [
+								"local.choices",
+							],
+						},
+						"max": {
+							"references": [
+								"local.species",
+							],
+						},
+						"min": {
+							"constant_value": 0,
+						},
+					},
+					"mode":                "managed",
+					"name":                "specie",
+					"provider_config_key": "random",
+					"schema_version":      0,
+					"type":                "random_integer",
+				},
+			],
+		},
+	},
+	"format_version": "0.1",
+	"output_changes": {
+		"pet": {
+			"actions": [
+				"create",
+			],
+			"after_sensitive":  false,
+			"after_unknown":    true,
+			"before":           null,
+			"before_sensitive": false,
+		},
+	},
+	"planned_values": {
+		"outputs": {
+			"pet": {
+				"sensitive": false,
+			},
+		},
+		"root_module": {
+			"resources": [
+				{
+					"address":        "random_integer.personality",
+					"mode":           "managed",
+					"name":           "personality",
+					"provider_name":  "registry.terraform.io/hashicorp/random",
+					"schema_version": 0,
+					"type":           "random_integer",
+					"values": {
+						"keepers": {
+							"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+							"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+						},
+						"max":  11,
+						"min":  0,
+						"seed": null,
+					},
+				},
+				{
+					"address":        "random_integer.specie",
+					"mode":           "managed",
+					"name":           "specie",
+					"provider_name":  "registry.terraform.io/hashicorp/random",
+					"schema_version": 0,
+					"type":           "random_integer",
+					"values": {
+						"keepers": {
+							"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+							"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+						},
+						"max":  12,
+						"min":  0,
+						"seed": null,
+					},
+				},
+			],
+		},
+	},
+	"resource_changes": [
+		{
+			"address": "random_integer.personality",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"keepers": {
+						"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+						"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+					},
+					"max":  11,
+					"min":  0,
+					"seed": null,
+				},
+				"after_sensitive": {
+					"keepers": {},
+				},
+				"after_unknown": {
+					"id":      true,
+					"keepers": {},
+					"result":  true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "personality",
+			"provider_name": "registry.terraform.io/hashicorp/random",
+			"type":          "random_integer",
+		},
+		{
+			"address": "random_integer.specie",
+			"change": {
+				"actions": [
+					"create",
+				],
+				"after": {
+					"keepers": {
+						"personalities": "wild_kind_fearful_aggressive_hungry_shy_noisy_hurt_sleepy_marvelous_spooky_sad",
+						"species":       "rabbit_mouse_dog_cat_horse_badger_giraffe_whale_snake_pigeon_trout_hyena_eagle",
+					},
+					"max":  12,
+					"min":  0,
+					"seed": null,
+				},
+				"after_sensitive": {
+					"keepers": {},
+				},
+				"after_unknown": {
+					"id":      true,
+					"keepers": {},
+					"result":  true,
+				},
+				"before":           null,
+				"before_sensitive": false,
+			},
+			"mode":          "managed",
+			"name":          "specie",
+			"provider_name": "registry.terraform.io/hashicorp/random",
+			"type":          "random_integer",
+		},
+	],
+	"terraform_version": "0.15.5",
+}
